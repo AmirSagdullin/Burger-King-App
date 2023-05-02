@@ -16,5 +16,10 @@ namespace Recomendations
         {
             InitializeComponent();
         }
+
+        private void Регистрация_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

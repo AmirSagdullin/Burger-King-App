@@ -118,9 +118,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Меню";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
+            this.label2.Text = "Меню";            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -139,9 +137,7 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(201, 158);
             this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
+            this.pictureBox1.TabStop = false;            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -183,9 +179,7 @@
             this.button1.Size = new System.Drawing.Size(276, 32);
             this.button1.TabIndex = 10;
             this.button1.Text = "Написать Отзыв";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
+            this.button1.UseVisualStyleBackColor = false;            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -273,7 +267,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form3";
             this.Text = "Form3";
-            this.Load += new System.EventHandler(this.Form3_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

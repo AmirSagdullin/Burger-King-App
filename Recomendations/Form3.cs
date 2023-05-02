@@ -12,38 +12,18 @@ namespace Recomendations
 {
     public partial class Form3 : Form
     {
+        static public string Login { get; set; }
         public Form3()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public Form3(string login)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form3_Load(object sender, EventArgs e)
-        {
-                    }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
+            CenterToScreen();
+            Login = login;
         }
     }
 }
