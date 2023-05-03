@@ -32,8 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureFind = new System.Windows.Forms.PictureBox();
+            this.textFind = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,9 +46,9 @@
             this.label19 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -58,8 +58,8 @@
             this.panel1.BackColor = System.Drawing.Color.SaddleBrown;
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.pictureFind);
+            this.panel1.Controls.Add(this.textFind);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -92,22 +92,22 @@
             this.button9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button9.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // pictureFind
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(567, 121);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.pictureFind.Image = ((System.Drawing.Image)(resources.GetObject("pictureFind.Image")));
+            this.pictureFind.Location = new System.Drawing.Point(567, 121);
+            this.pictureFind.Name = "pictureFind";
+            this.pictureFind.Size = new System.Drawing.Size(20, 20);
+            this.pictureFind.TabIndex = 4;
+            this.pictureFind.TabStop = false;
+            this.pictureFind.Click += new System.EventHandler(this.pictureFind_Click);
             // 
-            // textBox1
+            // textFind
             // 
-            this.textBox1.Location = new System.Drawing.Point(587, 121);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Бургеры";
+            this.textFind.Location = new System.Drawing.Point(587, 121);
+            this.textFind.Name = "textFind";
+            this.textFind.Size = new System.Drawing.Size(212, 20);
+            this.textFind.TabIndex = 3;
             // 
             // label2
             // 
@@ -118,7 +118,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Меню";            // 
+            this.label2.Text = "Меню";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -137,7 +138,8 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(201, 158);
             this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;            // 
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -179,7 +181,8 @@
             this.button1.Size = new System.Drawing.Size(276, 32);
             this.button1.TabIndex = 10;
             this.button1.Text = "Написать Отзыв";
-            this.button1.UseVisualStyleBackColor = false;            // 
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -236,17 +239,18 @@
             this.button3.Text = "Предыдущий продукт";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // buttonNext
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(875, 324);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 98);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "Следующий продукт";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonNext.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonNext.Location = new System.Drawing.Point(875, 324);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(123, 98);
+            this.buttonNext.TabIndex = 34;
+            this.buttonNext.Text = "Следующий продукт";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // Form3
             // 
@@ -254,7 +258,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(1272, 613);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label19);
@@ -269,7 +273,7 @@
             this.Text = "Form3";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -283,8 +287,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureFind;
+        private System.Windows.Forms.TextBox textFind;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
@@ -296,6 +300,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonNext;
     }
 }
