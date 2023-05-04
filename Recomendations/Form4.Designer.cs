@@ -107,7 +107,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label3
             // 
@@ -130,7 +129,6 @@
             this.label2.Size = new System.Drawing.Size(783, 80);
             this.label2.TabIndex = 7;
             this.label2.Text = resources.GetString("label2.Text");
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel2
             // 

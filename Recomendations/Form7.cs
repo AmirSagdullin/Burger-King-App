@@ -15,6 +15,7 @@ namespace Recomendations
         public Form7()
         {
             InitializeComponent();
+            CenterToScreen();
         }
     }
 }
