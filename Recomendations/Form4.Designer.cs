@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonToPodbor = new System.Windows.Forms.Button();
+            this.buttonToIzbr = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -44,8 +46,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -56,8 +56,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SaddleBrown;
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button10);
+            this.panel1.Controls.Add(this.buttonToPodbor);
+            this.panel1.Controls.Add(this.buttonToIzbr);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -66,6 +66,31 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 174);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonToPodbor
+            // 
+            this.buttonToPodbor.BackColor = System.Drawing.Color.Gold;
+            this.buttonToPodbor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonToPodbor.Location = new System.Drawing.Point(1037, 118);
+            this.buttonToPodbor.Name = "buttonToPodbor";
+            this.buttonToPodbor.Size = new System.Drawing.Size(211, 33);
+            this.buttonToPodbor.TabIndex = 14;
+            this.buttonToPodbor.Text = "Перейти к подборкам";
+            this.buttonToPodbor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonToPodbor.UseVisualStyleBackColor = false;
+            this.buttonToPodbor.Click += new System.EventHandler(this.buttonToPodbor_Click);
+            // 
+            // buttonToIzbr
+            // 
+            this.buttonToIzbr.BackColor = System.Drawing.Color.Gold;
+            this.buttonToIzbr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonToIzbr.Location = new System.Drawing.Point(1037, 74);
+            this.buttonToIzbr.Name = "buttonToIzbr";
+            this.buttonToIzbr.Size = new System.Drawing.Size(211, 34);
+            this.buttonToIzbr.TabIndex = 15;
+            this.buttonToIzbr.Text = "Перейти в избранное";
+            this.buttonToIzbr.UseVisualStyleBackColor = false;
+            this.buttonToIzbr.Click += new System.EventHandler(this.buttonToIzbr_Click);
             // 
             // label4
             // 
@@ -213,29 +238,6 @@
             this.button3.Text = "Предыдущий отзыв";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Gold;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(1037, 118);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(211, 33);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "Перейти к подборкам";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Gold;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button10.Location = new System.Drawing.Point(1037, 74);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(211, 34);
-            this.button10.TabIndex = 15;
-            this.button10.Text = "Перейти в избранное";
-            this.button10.UseVisualStyleBackColor = false;
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,7 +283,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonToPodbor;
+        private System.Windows.Forms.Button buttonToIzbr;
     }
 }

@@ -838,18 +838,21 @@ namespace Recomendations
 
         private void buttonIzbr_Click(object sender, EventArgs e)
         {
+            Hide();
             Form6 form6 = new Form6();
             form6.Show();
         }
 
         private void buttonPodbor_Click(object sender, EventArgs e)
         {
+            Hide();
             Form7 form7 = new Form7();
             form7.Show();
         }
 
         private void buttonOtz_Click(object sender, EventArgs e)
         {
+            Hide();
             Form4 form4 = new Form4();
             form4.Show();
         }

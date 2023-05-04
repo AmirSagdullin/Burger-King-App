@@ -17,5 +17,12 @@ namespace Recomendations
             InitializeComponent();
             CenterToScreen();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Form3 form3 = new Form3();
+            form3.Show();
+        }
     }
 }
