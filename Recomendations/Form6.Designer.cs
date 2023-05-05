@@ -129,6 +129,7 @@
             this.buttonPrevIzbr.TabIndex = 35;
             this.buttonPrevIzbr.Text = "Предыдущий продукт";
             this.buttonPrevIzbr.UseVisualStyleBackColor = false;
+            this.buttonPrevIzbr.Click += new System.EventHandler(this.buttonPrevIzbr_Click_1);
             // 
             // buttonNextIzbr
             // 
@@ -141,6 +142,7 @@
             this.buttonNextIzbr.TabIndex = 36;
             this.buttonNextIzbr.Text = "Следующий продукт";
             this.buttonNextIzbr.UseVisualStyleBackColor = false;
+            this.buttonNextIzbr.Click += new System.EventHandler(this.buttonNextIzbr_Click);
             // 
             // pictureProductIzbr
             // 

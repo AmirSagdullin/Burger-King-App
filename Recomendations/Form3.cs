@@ -5,31 +5,41 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Recomendations
 {
     public partial class Form3 : Form
     {
-        static public string Login { get; set; }
+        static private string Login { get; set; }
+        public int User_id { get; set; }
+
+        public List<Product> productList = new List<Product>();
+
+
         public Form3()
         {
             InitializeComponent();
             CenterToScreen();
+            LoadProducts();
         }
 
-        public Form3(string login)
+        public Form3(string login, int user_id)
         {
             InitializeComponent();
             CenterToScreen();
             Login = login;
+            User_id = user_id;
+            LoadProducts();
         }
 
-        public static int сount = 0;
+        public static int count = 0;
 
         private bool isPictureFindClicked = false;
 
@@ -57,7 +67,7 @@ namespace Recomendations
             }
         }
 
-        private void buttonNext_Click1(object sender, EventArgs e)
+        private void LoadProducts()
         {
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
@@ -68,7 +78,6 @@ namespace Recomendations
             {
                 connection.Open();
                 NpgsqlDataReader reader = command.ExecuteReader();
-                List<Product> productList = new List<Product>();
                 while (reader.Read())
                 {
                     Product product = new Product();
@@ -81,8 +90,40 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount++;
-                if (сount == 3)
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { connection.Close(); }
+        }
+
+        private void buttonNext_Click1(object sender, EventArgs e)
+        {
+            NpgsqlConnection connection = DB.GetConnection();
+            NpgsqlCommand command = connection.CreateCommand();
+
+            command.CommandText = "SELECT * FROM products";
+
+            try
+            {
+                connection.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = new Product();
+                    product.Id = (int)reader["id_"];
+                    product.Name = (string)reader["name_"];
+                    product.Sostav = (string)reader["sostav_"];
+                    product.Ostr = (string)reader["ostr_"];
+                    product.Ssilka = (string)reader["ssilka_"];
+                    product.Otz = (int)reader["otz_"];
+                    product.Rating = (double)reader["rating_"];
+                    productList.Add(product);
+                }
+                count++;
+                if (count == 3)
                 {
                     buttonNext.Enabled = false;
                     buttonPrev.Enabled = true;
@@ -92,7 +133,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -101,16 +142,16 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
             }
             catch (NoNullAllowedException ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -142,8 +183,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount++;
-                if (сount == 7)
+                count++;
+                if (count == 7)
                 {
                     buttonNext.Enabled = false;
                     buttonPrev.Enabled = true;
@@ -153,7 +194,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -162,9 +203,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -203,8 +244,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount++;
-                if (сount == 10)
+                count++;
+                if (count == 10)
                 {
                     buttonNext.Enabled = false;
                     buttonPrev.Enabled = true;
@@ -214,7 +255,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -223,9 +264,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -264,8 +305,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount++;
-                if (сount == 14)
+                count++;
+                if (count == 14)
                 {
                     buttonNext.Enabled = false;
                     buttonPrev.Enabled = true;
@@ -275,7 +316,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -284,9 +325,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -349,8 +390,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount--;
-                if (сount == 0)
+                count--;
+                if (count == 0)
                 {
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
@@ -360,7 +401,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -369,9 +410,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -410,8 +451,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount--;
-                if (сount == 4)
+                count--;
+                if (count == 4)
                 {
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
@@ -421,7 +462,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -430,9 +471,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -471,8 +512,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount--;
-                if (сount == 8)
+                count--;
+                if (count == 8)
                 {
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
@@ -482,7 +523,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -491,9 +532,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -532,8 +573,8 @@ namespace Recomendations
                     product.Rating = (double)reader["rating_"];
                     productList.Add(product);
                 }
-                сount--;
-                if (сount == 11)
+                count--;
+                if (count == 11)
                 {
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
@@ -543,7 +584,7 @@ namespace Recomendations
                     buttonNext.Enabled = true;
                     buttonPrev.Enabled = true;
                 }
-                string imageUrl = productList[сount].Ssilka;
+                string imageUrl = productList[count].Ssilka;
                 WebClient client = new WebClient();
                 client.Headers.Add("User-Agent: Other");
                 byte[] imageBytes = client.DownloadData(imageUrl);
@@ -552,9 +593,9 @@ namespace Recomendations
                     var image = Image.FromStream(ms);
                     pictureProduct.Image = image;
                 }
-                labelTitle.Text = productList[сount].Name;
-                labelRating.Text = productList[сount].Rating.ToString();
-                labelOtz.Text = productList[сount].Otz.ToString();
+                labelTitle.Text = productList[count].Name;
+                labelRating.Text = productList[count].Rating.ToString();
+                labelOtz.Text = productList[count].Otz.ToString();
                 reader.Close();
                 command.Dispose();
                 connection.Close();
@@ -597,7 +638,7 @@ namespace Recomendations
                     }
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
-                    string imageUrl = productList[сount].Ssilka;
+                    string imageUrl = productList[count].Ssilka;
                     WebClient client = new WebClient();
                     client.Headers.Add("User-Agent: Other");
                     byte[] imageBytes = client.DownloadData(imageUrl);
@@ -606,9 +647,9 @@ namespace Recomendations
                         var image = Image.FromStream(ms);
                         pictureProduct.Image = image;
                     }
-                    labelTitle.Text = productList[сount].Name;
-                    labelRating.Text = productList[сount].Rating.ToString();
-                    labelOtz.Text = productList[сount].Otz.ToString();
+                    labelTitle.Text = productList[count].Name;
+                    labelRating.Text = productList[count].Rating.ToString();
+                    labelOtz.Text = productList[count].Otz.ToString();
                     reader.Close();
                     command.Dispose();
                     connection.Close();
@@ -648,7 +689,7 @@ namespace Recomendations
                     }
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
-                    string imageUrl = productList[сount].Ssilka;
+                    string imageUrl = productList[count].Ssilka;
                     WebClient client = new WebClient();
                     client.Headers.Add("User-Agent: Other");
                     byte[] imageBytes = client.DownloadData(imageUrl);
@@ -657,9 +698,9 @@ namespace Recomendations
                         var image = Image.FromStream(ms);
                         pictureProduct.Image = image;
                     }
-                    labelTitle.Text = productList[сount].Name;
-                    labelRating.Text = productList[сount].Rating.ToString();
-                    labelOtz.Text = productList[сount].Otz.ToString();
+                    labelTitle.Text = productList[count].Name;
+                    labelRating.Text = productList[count].Rating.ToString();
+                    labelOtz.Text = productList[count].Otz.ToString();
                     reader.Close();
                     command.Dispose();
                     connection.Close();
@@ -699,7 +740,7 @@ namespace Recomendations
                     }
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
-                    string imageUrl = productList[сount].Ssilka;
+                    string imageUrl = productList[count].Ssilka;
                     WebClient client = new WebClient();
                     client.Headers.Add("User-Agent: Other");
                     byte[] imageBytes = client.DownloadData(imageUrl);
@@ -708,9 +749,9 @@ namespace Recomendations
                         var image = Image.FromStream(ms);
                         pictureProduct.Image = image;
                     }
-                    labelTitle.Text = productList[сount].Name;
-                    labelRating.Text = productList[сount].Rating.ToString();
-                    labelOtz.Text = productList[сount].Otz.ToString();
+                    labelTitle.Text = productList[count].Name;
+                    labelRating.Text = productList[count].Rating.ToString();
+                    labelOtz.Text = productList[count].Otz.ToString();
                     reader.Close();
                     command.Dispose();
                     connection.Close();
@@ -750,7 +791,7 @@ namespace Recomendations
                     }
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
-                    string imageUrl = productList[сount].Ssilka;
+                    string imageUrl = productList[count].Ssilka;
                     WebClient client = new WebClient();
                     client.Headers.Add("User-Agent: Other");
                     byte[] imageBytes = client.DownloadData(imageUrl);
@@ -759,9 +800,9 @@ namespace Recomendations
                         var image = Image.FromStream(ms);
                         pictureProduct.Image = image;
                     }
-                    labelTitle.Text = productList[сount].Name;
-                    labelRating.Text = productList[сount].Rating.ToString();
-                    labelOtz.Text = productList[сount].Otz.ToString();
+                    labelTitle.Text = productList[count].Name;
+                    labelRating.Text = productList[count].Rating.ToString();
+                    labelOtz.Text = productList[count].Otz.ToString();
                     reader.Close();
                     command.Dispose();
                     connection.Close();
@@ -801,7 +842,7 @@ namespace Recomendations
                     }
                     buttonPrev.Enabled = false;
                     buttonNext.Enabled = true;
-                    string imageUrl = productList[сount].Ssilka;
+                    string imageUrl = productList[count].Ssilka;
                     WebClient client = new WebClient();
                     client.Headers.Add("User-Agent: Other");
                     byte[] imageBytes = client.DownloadData(imageUrl);
@@ -810,9 +851,9 @@ namespace Recomendations
                         var image = Image.FromStream(ms);
                         pictureProduct.Image = image;
                     }
-                    labelTitle.Text = productList[сount].Name;
-                    labelRating.Text = productList[сount].Rating.ToString();
-                    labelOtz.Text = productList[сount].Otz.ToString();
+                    labelTitle.Text = productList[count].Name;
+                    labelRating.Text = productList[count].Rating.ToString();
+                    labelOtz.Text = productList[count].Otz.ToString();
                     reader.Close();
                     command.Dispose();
                     connection.Close();
@@ -836,7 +877,33 @@ namespace Recomendations
         private void buttonIzbr_Click(object sender, EventArgs e)
         {
             Hide();
-            Form6 form6 = new Form6();
+
+            int user_id = -1;
+            
+            NpgsqlConnection connection = DB.GetConnection();
+            NpgsqlCommand command = connection.CreateCommand();
+            NpgsqlDataReader reader;
+
+            command.CommandText = $"SELECT user_id FROM userr WHERE login = '{Login}'";
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    user_id = reader.GetInt32(0);
+                }
+
+            } catch (Exception ex)
+            {
+
+            }
+            finally { connection.Close(); }
+
+            Form6 form6 = new Form6(user_id);
             form6.Show();
         }
 
@@ -850,37 +917,49 @@ namespace Recomendations
         private void buttonOtz_Click(object sender, EventArgs e)
         {
             Hide();
-            Form4 form4 = new Form4();
+            Form4 form4 = new Form4(User_id);
             form4.Show();
         }
 
         private void buttonAddToIzbr_Click(object sender, EventArgs e)
         {
+
+
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
+            NpgsqlDataReader reader;
 
-            command.CommandText = "INSERT INTO izbr (user_id, product_id) " +
-                                  "SELECT userr.user_id, products.id_ " +
-                                  "FROM userr, products " +
-                                  "WHERE userr.user_id = products.id_";
             try
             {
-                connection.Open();
-                NpgsqlDataReader reader = command.ExecuteReader();
-                command.ExecuteNonQuery();
+                Product product = new Product();
+                foreach (var prdct in productList)
+                {
+                    if (prdct.Name == labelTitle.Text)
+                    {
+                        product.Name = labelTitle.Text;
+                        product.Id = prdct.Id;
+                        connection.Open();
+                        command.CommandText = $"INSERT INTO izbr(user_id, product_id) values({User_id}, {prdct.Id})";
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Продукт добавлен в избранное!");
+                    }
+                }
 
-                reader.Close();
-                command.Dispose();
-                connection.Close();
+
             }
-            catch (NoNullAllowedException ex)
+            catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 connection.Close();
             }
+        }
+
+        private void Form3_Leave(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

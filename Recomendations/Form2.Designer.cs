@@ -149,6 +149,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Регистрация";
             this.Text = "Form2";
+            this.Leave += new System.EventHandler(this.Регистрация_Leave);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Регистрация_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Регистрация_MouseMove);
             this.ResumeLayout(false);

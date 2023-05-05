@@ -136,11 +136,12 @@ namespace Recomendations
             command.CommandText = $"INSERT INTO userr(name, surname, login, password) VALUES ('{userNameField.Text}', '{userSurnameField.Text}', '{loginField.Text}', '{passField.Text}')";
             try
             {
+                int id;
                 connection.Open();
-                if (command.ExecuteNonQuery() != -1)
+                if ((id = command.ExecuteNonQuery()) != -1)
                 {
                     Hide();
-                    Form3 form3 = new Form3(loginField.Text);
+                    Form3 form3 = new Form3(loginField.Text, id);
                     form3.Show();
                 }
                 else
@@ -184,6 +185,11 @@ namespace Recomendations
                 return true;
             }
             finally { connection.Close(); }
+        }
+
+        private void Регистрация_Leave(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

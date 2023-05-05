@@ -47,6 +47,7 @@
             this.buttonAddToIzbr = new System.Windows.Forms.Button();
             this.buttonPrev = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
+            this.labelUserId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -256,12 +257,21 @@
             this.buttonNext.UseVisualStyleBackColor = false;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
+            // labelUserId
+            // 
+            this.labelUserId.AutoSize = true;
+            this.labelUserId.Location = new System.Drawing.Point(1180, 588);
+            this.labelUserId.Name = "labelUserId";
+            this.labelUserId.Size = new System.Drawing.Size(0, 13);
+            this.labelUserId.TabIndex = 35;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(1272, 613);
+            this.Controls.Add(this.labelUserId);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonAddToIzbr);
@@ -276,6 +286,7 @@
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
+            this.Leave += new System.EventHandler(this.Form3_Leave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFind)).EndInit();
@@ -306,5 +317,6 @@
         private System.Windows.Forms.Button buttonPodbor;
         private System.Windows.Forms.Button buttonPrev;
         private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Label labelUserId;
     }
 }

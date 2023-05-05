@@ -13,6 +13,8 @@ namespace Recomendations
 {
     public partial class Авторизация : Form
     {
+        public int User_id { get; set; }
+
         public Авторизация()
         {
             InitializeComponent();
@@ -62,8 +64,10 @@ namespace Recomendations
                 if (reader.Read() && reader.HasRows)
                 {
                     Hide();
-                    Form3 form3 = new Form3(loginUser);
+                    User_id = reader.GetInt32(0);
+                    Form3 form3 = new Form3(loginUser, User_id);
                     form3.ShowDialog();
+                    form3.Close();
                 }
                 else
                 {
@@ -100,7 +104,13 @@ namespace Recomendations
         {
             Hide();
             Регистрация регистрация = new Регистрация();
-            регистрация.Show();
+            регистрация.ShowDialog();
+            регистрация.Close();
+        }
+
+        private void buttonLogin_Leave(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
