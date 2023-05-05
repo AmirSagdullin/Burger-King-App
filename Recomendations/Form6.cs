@@ -187,7 +187,7 @@ namespace Recomendations
                 }
                 length = productList.Count;
                 count--;
-                if (count == length - 1)
+                if (count == length)
                 {
                     buttonPrevIzbr.Enabled = false;
                     buttonNextIzbr.Enabled = true;
