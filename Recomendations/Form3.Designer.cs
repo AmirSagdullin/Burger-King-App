@@ -228,6 +228,7 @@
             this.buttonAddToIzbr.TabIndex = 32;
             this.buttonAddToIzbr.Text = "Добавил в избранное";
             this.buttonAddToIzbr.UseVisualStyleBackColor = false;
+            this.buttonAddToIzbr.Click += new System.EventHandler(this.buttonAddToIzbr_Click);
             // 
             // buttonPrev
             // 

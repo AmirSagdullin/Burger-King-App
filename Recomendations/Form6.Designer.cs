@@ -35,17 +35,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonPrevIzbr = new System.Windows.Forms.Button();
+            this.buttonNextIzbr = new System.Windows.Forms.Button();
+            this.pictureProductIzbr = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelOtzIzbr = new System.Windows.Forms.Label();
+            this.labelRatingIzbr = new System.Windows.Forms.Label();
+            this.labelTitleIzbr = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProductIzbr)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,39 +118,39 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button3
+            // buttonPrevIzbr
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(349, 324);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 98);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Предыдущий продукт";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonPrevIzbr.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.buttonPrevIzbr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPrevIzbr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrevIzbr.Location = new System.Drawing.Point(349, 324);
+            this.buttonPrevIzbr.Name = "buttonPrevIzbr";
+            this.buttonPrevIzbr.Size = new System.Drawing.Size(123, 98);
+            this.buttonPrevIzbr.TabIndex = 35;
+            this.buttonPrevIzbr.Text = "Предыдущий продукт";
+            this.buttonPrevIzbr.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // buttonNextIzbr
             // 
-            this.button4.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(879, 324);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 98);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "Следующий продукт";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonNextIzbr.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.buttonNextIzbr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNextIzbr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonNextIzbr.Location = new System.Drawing.Point(879, 324);
+            this.buttonNextIzbr.Name = "buttonNextIzbr";
+            this.buttonNextIzbr.Size = new System.Drawing.Size(123, 98);
+            this.buttonNextIzbr.TabIndex = 36;
+            this.buttonNextIzbr.Text = "Следующий продукт";
+            this.buttonNextIzbr.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // pictureProductIzbr
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(535, 211);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(276, 211);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 37;
-            this.pictureBox2.TabStop = false;
+            this.pictureProductIzbr.Image = ((System.Drawing.Image)(resources.GetObject("pictureProductIzbr.Image")));
+            this.pictureProductIzbr.Location = new System.Drawing.Point(535, 211);
+            this.pictureProductIzbr.Name = "pictureProductIzbr";
+            this.pictureProductIzbr.Size = new System.Drawing.Size(276, 211);
+            this.pictureProductIzbr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureProductIzbr.TabIndex = 37;
+            this.pictureProductIzbr.TabStop = false;
             // 
             // label7
             // 
@@ -174,38 +174,38 @@
             this.label11.TabIndex = 39;
             this.label11.Text = "Отзывы:";
             // 
-            // label15
+            // labelOtzIzbr
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(627, 495);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(18, 20);
-            this.label15.TabIndex = 40;
-            this.label15.Text = "5";
+            this.labelOtzIzbr.AutoSize = true;
+            this.labelOtzIzbr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOtzIzbr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelOtzIzbr.Location = new System.Drawing.Point(627, 495);
+            this.labelOtzIzbr.Name = "labelOtzIzbr";
+            this.labelOtzIzbr.Size = new System.Drawing.Size(18, 20);
+            this.labelOtzIzbr.TabIndex = 40;
+            this.labelOtzIzbr.Text = "5";
             // 
-            // label19
+            // labelRatingIzbr
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label19.Location = new System.Drawing.Point(627, 469);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(27, 20);
-            this.label19.TabIndex = 41;
-            this.label19.Text = "10";
+            this.labelRatingIzbr.AutoSize = true;
+            this.labelRatingIzbr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRatingIzbr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelRatingIzbr.Location = new System.Drawing.Point(627, 469);
+            this.labelRatingIzbr.Name = "labelRatingIzbr";
+            this.labelRatingIzbr.Size = new System.Drawing.Size(27, 20);
+            this.labelRatingIzbr.TabIndex = 41;
+            this.labelRatingIzbr.Text = "10";
             // 
-            // label3
+            // labelTitleIzbr
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(529, 425);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 31);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Биг Тейсти";
+            this.labelTitleIzbr.AutoSize = true;
+            this.labelTitleIzbr.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTitleIzbr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelTitleIzbr.Location = new System.Drawing.Point(529, 425);
+            this.labelTitleIzbr.Name = "labelTitleIzbr";
+            this.labelTitleIzbr.Size = new System.Drawing.Size(162, 31);
+            this.labelTitleIzbr.TabIndex = 42;
+            this.labelTitleIzbr.Text = "Биг Тейсти";
             // 
             // Form6
             // 
@@ -213,21 +213,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(1272, 613);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.labelTitleIzbr);
+            this.Controls.Add(this.labelRatingIzbr);
+            this.Controls.Add(this.labelOtzIzbr);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.pictureProductIzbr);
+            this.Controls.Add(this.buttonNextIzbr);
+            this.Controls.Add(this.buttonPrevIzbr);
             this.Controls.Add(this.panel1);
             this.Name = "Form6";
             this.Text = "Form6";
+            this.Load += new System.EventHandler(this.Form6_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProductIzbr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,14 +240,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttonPrevIzbr;
+        private System.Windows.Forms.Button buttonNextIzbr;
+        private System.Windows.Forms.PictureBox pictureProductIzbr;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelOtzIzbr;
+        private System.Windows.Forms.Label labelRatingIzbr;
+        private System.Windows.Forms.Label labelTitleIzbr;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
     }

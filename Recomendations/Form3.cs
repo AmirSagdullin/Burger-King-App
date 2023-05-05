@@ -31,31 +31,29 @@ namespace Recomendations
 
         public static int сount = 0;
 
-        private bool isButtonNextClicked = false;
-
-        private bool isButtonPrevClicked = false;
+        private bool isPictureFindClicked = false;
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            if (textFind.Text == "")
+            if (textFind.Text == "бургеры" && isPictureFindClicked)
             {
-                buttonNext.Click += new EventHandler(buttonNext_Click4);
+                buttonNext_Click1(sender, e);
             }
-            else if (textFind.Text == "бургеры" && isButtonNextClicked)
+            else if (textFind.Text == "курица" && isPictureFindClicked)
             {
-                buttonNext.Click += new EventHandler(buttonNext_Click1);
+                buttonNext_Click2(sender, e);
             }
-            else if (textFind.Text == "курица" && isButtonNextClicked)
+            else if (textFind.Text == "коктейли" && isPictureFindClicked)
             {
-                buttonNext.Click += new EventHandler(buttonNext_Click2);
+                buttonNext_Click3(sender, e);
             }
-            else if (textFind.Text == "коктейли" && isButtonNextClicked)
+            else if (textFind.Text == "кофе" && isPictureFindClicked)
             {
-                buttonNext.Click += new EventHandler(buttonNext_Click3);
+                buttonNext_Click4(sender, e);
             }
-            else if (textFind.Text == "кофе" && isButtonNextClicked)
+            else
             {
-                buttonNext.Click += new EventHandler(buttonNext_Click4);
+                buttonNext_Click4(sender, e);
             }
         }
 
@@ -64,7 +62,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -125,7 +123,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -186,7 +184,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -247,7 +245,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -305,25 +303,25 @@ namespace Recomendations
 
         private void buttonPrev_Click(object sender, EventArgs e)
         {
-            if (textFind.Text == "")
+            if (textFind.Text == "бургеры" && isPictureFindClicked)
             {
-                buttonPrev.Click += new EventHandler(buttonPrev_Click1);
+                buttonPrev_Click1(sender, e);
             }
-            else if (textFind.Text == "бургеры" && isButtonPrevClicked)
+            else if (textFind.Text == "курица" && isPictureFindClicked)
             {
-                buttonPrev.Click += new EventHandler(buttonPrev_Click1);
+                buttonPrev_Click2(sender, e);
             }
-            else if (textFind.Text == "курица" && isButtonPrevClicked)
+            else if (textFind.Text == "коктейли" && isPictureFindClicked)
             {
-                buttonPrev.Click += new EventHandler(buttonPrev_Click2);
+                buttonPrev_Click3(sender, e);
             }
-            else if (textFind.Text == "коктейли" && isButtonPrevClicked)
+            else if (textFind.Text == "кофе" && isPictureFindClicked)
             {
-                buttonPrev.Click += new EventHandler(buttonPrev_Click3);
+                buttonPrev_Click4(sender, e);
             }
-            else if (textFind.Text == "кофе" && isButtonPrevClicked)
+            else
             {
-                buttonPrev.Click += new EventHandler(buttonPrev_Click4);
+                buttonPrev_Click1(sender, e);
             }
         }
 
@@ -332,7 +330,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -393,7 +391,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -454,7 +452,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -515,7 +513,7 @@ namespace Recomendations
             NpgsqlConnection connection = DB.GetConnection();
             NpgsqlCommand command = connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Products";
+            command.CommandText = "SELECT * FROM products";
 
             try
             {
@@ -573,12 +571,12 @@ namespace Recomendations
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            if (textFind.Text == "")
+            if (textFind.Text == "бургеры" && isPictureFindClicked)
             {
                 NpgsqlConnection connection = DB.GetConnection();
                 NpgsqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Products where id_ = 1";
+                command.CommandText = "SELECT * FROM products where id_ = 1";
 
                 try
                 {
@@ -624,12 +622,12 @@ namespace Recomendations
                     connection.Close();
                 }
             }
-            else if (textFind.Text == "бургеры" && isButtonPrevClicked)
+            else if (textFind.Text == "курица" && isPictureFindClicked)
             {
                 NpgsqlConnection connection = DB.GetConnection();
                 NpgsqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Products where id_ = 1";
+                command.CommandText = "SELECT * FROM products where id_ = 6";
 
                 try
                 {
@@ -675,12 +673,12 @@ namespace Recomendations
                     connection.Close();
                 }
             }
-            else if (textFind.Text == "курица" && isButtonPrevClicked)
+            else if (textFind.Text == "коктейли" && isPictureFindClicked)
             {
                 NpgsqlConnection connection = DB.GetConnection();
                 NpgsqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Products where id_ = 6";
+                command.CommandText = "SELECT * FROM products where id_ = 10";
 
                 try
                 {
@@ -726,12 +724,12 @@ namespace Recomendations
                     connection.Close();
                 }
             }
-            else if (textFind.Text == "коктейли" && isButtonPrevClicked)
+            else if (textFind.Text == "кофе" && isPictureFindClicked)
             {
                 NpgsqlConnection connection = DB.GetConnection();
                 NpgsqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Products where id_ = 10";
+                command.CommandText = "SELECT * FROM products where id_ = 13";
 
                 try
                 {
@@ -777,12 +775,12 @@ namespace Recomendations
                     connection.Close();
                 }
             }
-            else if (textFind.Text == "кофе" && isButtonPrevClicked)
+            else
             {
                 NpgsqlConnection connection = DB.GetConnection();
                 NpgsqlCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT * FROM Products where id_ = 13";
+                command.CommandText = "SELECT * FROM products where id_ = 1";
 
                 try
                 {
@@ -832,8 +830,7 @@ namespace Recomendations
 
         private void pictureFind_Click(object sender, EventArgs e)
         {
-            isButtonNextClicked = true;
-            isButtonPrevClicked = true;
+            isPictureFindClicked = true;
         }
 
         private void buttonIzbr_Click(object sender, EventArgs e)
@@ -855,6 +852,35 @@ namespace Recomendations
             Hide();
             Form4 form4 = new Form4();
             form4.Show();
+        }
+
+        private void buttonAddToIzbr_Click(object sender, EventArgs e)
+        {
+            NpgsqlConnection connection = DB.GetConnection();
+            NpgsqlCommand command = connection.CreateCommand();
+
+            command.CommandText = "INSERT INTO izbr (user_id, product_id) " +
+                                  "SELECT userr.user_id, products.id_ " +
+                                  "FROM userr, products " +
+                                  "WHERE userr.user_id = products.id_";
+            try
+            {
+                connection.Open();
+                NpgsqlDataReader reader = command.ExecuteReader();
+                command.ExecuteNonQuery();
+
+                reader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (NoNullAllowedException ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
